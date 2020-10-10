@@ -20,21 +20,21 @@ connection.start().then(function () {
 });
 
 document.getElementById('sendButton').addEventListener('click', function (event) {
-    const user = document.getElementById('userInput');
+    //const user = document.getElementById('userInput');
     const message = document.getElementById('messageInput');
 
-    if (user.value.trim() === '') {
-        user.setCustomValidity("Field can't be empty.");
-        user.reportValidity();
-        return;
-    }
+    //if (user.value.trim() === '') {
+    //    user.setCustomValidity("Field can't be empty.");
+    //    user.reportValidity();
+    //    return;
+    //}
     if (message.value.trim() === '') {
         message.setCustomValidity("Field can't be empty.");
         message.reportValidity();
         return;
     } 
 
-    connection.invoke('SendMessage', user.value, message.value).catch(function (err) {
+    connection.invoke('SendMessage', message.value).catch(function (err) {
         return console.error(err.toString());
     });
     event.preventDefault();

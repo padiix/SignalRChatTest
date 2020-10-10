@@ -10,10 +10,12 @@ namespace SginalRChatTest.Hubs
     {
         private static readonly List<Message> CachedMessages = new List<Message>();
 
-        public async Task SendMessage(string user, string message)
+        public async Task SendMessage(string message)
         {
-            await Clients.All.SendAsync("ReceiveMessage", user, message, DateTime.Now.ToString("HH':'mm':'ss dd-MM-yyy"));
-            CacheMessage(user, message);
+            string name = Context.User.Identity.Name;
+
+            await Clients.All.SendAsync("ReceiveMessage", name, message, DateTime.Now.ToString("HH':'mm':'ss dd-MM-yyy"));
+            CacheMessage(name, message);
         }
 
         public override async Task OnConnectedAsync()
@@ -27,7 +29,6 @@ namespace SginalRChatTest.Hubs
 
             if (CachedMessages.Count > 200)
                 CachedMessages.RemoveAt(0);
-
         }
     }
 }
