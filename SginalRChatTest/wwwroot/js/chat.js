@@ -44,13 +44,25 @@ function addMessage(user, text, sentTime) {
     const userName = user.substr(0, user.indexOf('@')); 
     const onlyTime = sentTime.substr(0, 8); 
 
+   
+
     const msg = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+    const currentUserName = currentUser.substr(0, currentUser.indexOf('@')); 
+
     const encodedMsg = `(${onlyTime}) ${userName}: ${msg}`;
+
+   
 
     const li = document.createElement('li');
     li.textContent = encodedMsg;
 
     const list = document.getElementById('messagesList');
+
+    if (currentUserName === userName) {
+        li.style.color = '#5ca4d1';
+    }
+
     list.append(li);
 
     const chatWindow = document.getElementById('chat-window');
