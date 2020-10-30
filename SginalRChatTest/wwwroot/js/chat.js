@@ -41,12 +41,20 @@ document.getElementById('sendButton').addEventListener('click', function (event)
 });
 
 function addMessage(user, text, sentTime) {
+    const userName = user.substr(0, user.indexOf('@')); 
+    const onlyTime = sentTime.substr(0, 8); 
+
     const msg = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    const encodedMsg = `(${sentTime}) ${user}: ${msg}`;
+    const encodedMsg = `(${onlyTime}) ${userName}: ${msg}`;
 
     const li = document.createElement('li');
     li.textContent = encodedMsg;
 
     const list = document.getElementById('messagesList');
-    list.insertBefore(li, list.childNodes[0]);
+    list.append(li);
+
+    const chatWindow = document.getElementById('chat-window');
+    chatWindow.scrollTo(0, chatWindow.scrollHeight);
+
+    document.getElementById('messageInput').value = '';
 };
