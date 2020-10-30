@@ -1,27 +1,27 @@
 ﻿@page
-
-<div class="container">
-    <div class="row">&nbsp;</div>
-    <div class="row">
-        <div class="col-2">Message</div>
-        <textarea class="form-control" id="messageInput" rows="3" required=""></textarea>
-    </div>
-    <div class="row">&nbsp;</div>
-    <div class="row">
-        <div class="col-6">
-            <input type="button" id="sendButton" value="Send Message" />
+<link rel="stylesheet" href="~/css/chat.css">
+<link rel="stylesheet" href="~/css/font-awesome.min.css">
+<div class="container py-5 px-2">
+    <div class="row rounded-lg overflow-hidden shadow">
+        <!-- Chat Box-->
+        <div class="col-12 px-0">
+            <div id="chat-window" class="px-5 py-5 chat-box bg-white">
+                <div class="row">
+                    <ul id="messagesList" style="list-style: none;"></ul>
+                </div>
+            </div>
+            <!-- Typing area -->
+            <form action="#" class="bg-light">
+                <div class="input-group">
+                <input type="text" placeholder="Type a message" id="messageInput" required="" aria-describedby="sendButton" class="form-control rounded-0 border-0 py-4 bg-light">
+                    <div class="input-group-append">
+                        <button id="sendButton" type="submit" class="btn btn-link"> <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-12">
-        <hr />
-    </div>
-</div>
-<div class="row">
-    <div class="col-6">
-        <ul id="messagesList" style="list-style: none;"></ul>
-    </div>
-</div>
+
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
 <script src="~/js/chat.js"></script>
