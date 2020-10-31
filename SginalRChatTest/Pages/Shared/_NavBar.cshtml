@@ -1,16 +1,25 @@
 ﻿<header>
-    <link rel="stylesheet" href="~/css/NavBar.css" />
+    <link rel="stylesheet" href="~/css/navbar.css" />
+    <script src="https://kit.fontawesome.com/35d093650e.js" crossorigin="anonymous"></script>
 </header>
 
 <nav class="navbar navbar-dark navbar-expand-md" id="app-navbar">
-    <div class="container-fluid"><a class="navbar-brand" href="#"><i class="fa fa-comments-o" id="brand-logo"></i></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <i class="far fa-comments" id="brand-logo" style="color: #9370db"></i>
+        </a>
+        <button data-toggle="collapse" class="navbar-toggler ml-auto custom-toggler" data-target="#navcol-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon" style="color: #9370db"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item" role="presentation"><a class="nav-link active" href="#"><span style="color: #c9c9f4; font-size:large;">Home</span></a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="#"><span style="color: #c9c9f4; font-size: large;">Privacy</span></a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="#"><span style="color: #c9c9f4; font-size: large;">About</span></a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="#"><span style="color: #9370db; font-size: large;">Home</span></a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="#"><span style="color: #9370db; font-size: large;">Privacy</span></a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="#"><span style="color: #9370db; font-size: large;">About</span></a></li>
             </ul>
-            <partial name="_LoginPartial" />
+            <partial name="_LoginPartial"/>
         </div>
     </div>
 </nav>
+
