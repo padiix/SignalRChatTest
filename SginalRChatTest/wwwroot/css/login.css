@@ -9,23 +9,23 @@ body {
 }
 
 .button-signin, .button-signin:visited {
-    background: #9370db !important;
-    border-color: #9370db !important;
+    background: #bcbcf2 !important;
+    border-color: #bcbcf2 !important;
 }
 
-    .button-signin:hover, .button-signin:active{
-        background: #7559af !important;
-        border-color: #7559af !important;
+    .button-signin:hover, .button-signin:active {
+        background: #a9a9d9 !important;
+        border-color: #a9a9d9 !important;
     }
 
 .button-signup, .button-signup:visited {
-    background: #b8db70 !important;
-    border-color: #b8db70 !important;
+    background: #91e9e9 !important;
+    border-color: #91e9e9 !important;
 }
 
-    .button-signup:hover, .button-signup:active{
-        background: #93af59 !important;
-        border-color: #b8db70 !important;
+    .button-signup:hover, .button-signup:active {
+        background: #82d1d1 !important;
+        border-color: #82d1d1 !important;
     }
 
 
@@ -115,6 +115,10 @@ body {
 .btn-facebook {
     background-color: #3b5998;
     color: white;
+}
+
+.font-roboto {
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Fallback for Edge
