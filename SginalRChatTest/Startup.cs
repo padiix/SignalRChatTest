@@ -20,8 +20,10 @@ namespace SginalRChatTest
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages()
-                .AddMvcOptions(options => options.Filters.Add(new AuthorizeFilter()));
+            services.AddRazorPages(options =>
+            {
+                options.Conventions.AuthorizePage("/Index");
+            });
             services.AddSignalR();
         }
 
@@ -44,9 +46,9 @@ namespace SginalRChatTest
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
