@@ -1,6 +1,10 @@
 ﻿@page
-<link rel="stylesheet" href="~/css/chat.css">
-<link rel="stylesheet" href="~/css/font-awesome.min.css">
+@section Styles
+{
+    <link rel="stylesheet" href="~/css/chat.css">
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+}
+
 <div class="container py-5 px-2">
     <div class="row rounded-lg overflow-hidden shadow">
         <!-- Chat Box-->
@@ -23,8 +27,12 @@
     </div>
 </div>
 
-<script src="~/js/signalr/dist/browser/signalr.js"></script>
-<script src="~/js/chat.js"></script>
-<script>
-    var currentUser = "@HttpContext.User.Identity.Name";
-</script>
+@section Scripts
+{
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/chat.js"></script>
+    <script>
+        var currentUser = "@HttpContext.User.Identity.Name";
+    </script>
+}
+
