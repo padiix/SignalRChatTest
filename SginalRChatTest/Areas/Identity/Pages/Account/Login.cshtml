@@ -14,6 +14,7 @@
                     <h5 class="card-title text-center">Sign In</h5>
                     <section>
                         <form class="form-signin" id="account" method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <div class="form-label-group">
                                 <input type="email" asp-for="Input.Email" class="form-control" placeholder="Email address" required autofocus>
                                 <label asp-for="Input.Email">Email address</label>
