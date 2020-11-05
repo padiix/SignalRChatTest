@@ -1,9 +1,23 @@
 ﻿@page
-
 @{
-    ViewData["Title"] = "About site";
+    ViewData["Title"] = "About Us";
 }
-<h1>@ViewData["Title"]</h1>
-<p>This page uses <b>SignalR</b> which provides real-time synchronization of client with server. <i>This service is necessary to make a Chat Room.</i></p>
-<p>For design the page is using <b>Bootstrap 4</b> with Free Licenced code for some of the looks.</p>
-<p>This page was made by <b>Aleksander Froń</b> and <b>Bartosz Leżyński</b> as project for <b>Programowanie Aplikacji Sieciowych</b>.</p>
+
+@section Styles
+{
+    <link rel="stylesheet" href="~/css/login.css" />
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-md-7 col-lg-10 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center" style="font-size: 2rem;"><br />About Us</h5>
+                    <p class="card-text text-left">This site was made by <b><i>Aleksander Froń</i></b> and <b><i>Bartosz Leżyński</i></b> as a project for "Programming Network Applications" course at Kazimierz Wielki University.</p>
+                    <p class="card-text text-left">It uses ASP.NET as back-end with SingalR for real time communication between server and client with Bootstrap 4 for front-end.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
