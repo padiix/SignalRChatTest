@@ -1,0 +1,63 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "User Panel";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+@section Styles{ 
+<link rel="stylesheet" href="~/css/login.css" />
+}
+
+<div class="container">
+    <div class="card my-3">
+        <div class="card-body">
+            <h4 class="card-title text-center">@ViewData["Title"]</h4>
+            <section>
+                <div class="row align-items-center p-3">
+                    <div class="col-2 text-right">
+                        <label asp-for="Username"></label>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-label-group">
+                            <input type="email" asp-for="Username" class="form-control" disabled />
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <p>
+                                <a class="btn btn-lg btn-primary btn-block text-uppercase button-signin" asp-page="./Email" asp-route-returnUrl="./Index">Change</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row align-items-center p-2">
+                    <div class="col-2 text-right">
+                        <label>Current password</label>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-label-group">
+                            <input type="password" class="form-control" value="*********" disabled />
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <p>
+                                <a class="btn btn-lg btn-primary btn-block text-uppercase button-signin" asp-page="./ChangePassword" asp-route-returnUrl="./Index">Change</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
