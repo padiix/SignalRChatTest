@@ -1,0 +1,54 @@
+﻿@page
+@model EmailModel
+@{
+    ViewData["Title"] = "Manage Email";
+    ViewData["ActivePage"] = ManageNavPages.Email;
+}
+
+@section Styles{ 
+    <link rel="stylesheet" href="~/css/login.css" />
+}
+
+<div class="card my-3">
+    <div class="card-body">
+        <h5 class="card-title text-center">@ViewData["Title"]</h5>
+        <partial name="_StatusMessage" for="StatusMessage" />
+        <section>
+            <div class="row align-items-center p-3">
+                <div class="col-md-6">
+                    <form class="form-signin" id="email-form" method="post">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="form-label-group">
+                            <label asp-for="Email"></label>
+                            @if (Model.IsEmailConfirmed)
+                            {
+                                <div class="form-label-group">
+                                    <input type="email" asp-for="Email" class="form-control" placeholder="Current email" disabled />
+                                    <label asp-for="Email">Current email</label>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="form-label-group">
+                                    <input asp-for="Email" class="form-control" placeholder="Email address" disabled />
+                                    <label asp-for="Email">Email address</label>
+                                    <button id="email-verification" type="submit" asp-page-handler="SendVerificationEmail" class="btn btn-lg btn-primary btn-block text-uppercase button-signin">Send verification email</button>
+                                </div>
+                            }
+                        </div>
+                        <div class="form-label-group">
+                            <input type="email" asp-for="Input.NewEmail" class="form-control" placeholder="New email" required autofocus />
+                            <label asp-for="Input.NewEmail"></label>
+                            <span asp-validation-for="Input.NewEmail" class="text-danger"></span>
+                        </div>
+                        <button id="change-email-button" type="submit" asp-page-handler="ChangeEmail" class="btn btn-lg btn-primary btn-block text-uppercase button-signin">Change email</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
