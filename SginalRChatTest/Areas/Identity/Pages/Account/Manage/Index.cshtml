@@ -5,54 +5,63 @@
     ViewData["ActivePage"] = ManageNavPages.Index;
 }
 
-@section Styles{ 
-<link rel="stylesheet" href="~/css/login.css" />
+@section Styles{
+    <link rel="stylesheet" href="~/css/login.css" />
 }
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-md-7 col-lg-10 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center" style="font-size: 2rem;"><br />@ViewData["Title"]</h5>
+                    <div class="user-center">
+                        <section>
+                            <form class="form-signin">
+                                <div class="row align-items-center p-3">
+                                    <div class="col-md-2 text-right">
+                                        <label asp-for="Username"></label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-label-group">
+                                            <input type="email" asp-for="Username" class="form-control" disabled />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <p>
+                                                <a class="btn btn-lg btn-primary btn-block text-uppercase button-signin" asp-page="./Email" asp-route-returnUrl="./Index">Change email</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
 
-<div class="card my-3">
-    <div class="card-body">
-        <h4 class="card-title text-center">@ViewData["Title"]</h4>
-        <section>
-            <form class="form-signin">
-                <div class="row align-items-center p-3">
-                    <div class="col-md-2 text-right">
-                        <label asp-for="Username"></label>
+                                <div class="row align-items-center p-2">
+                                    <div class="col-md-2 text-right">
+                                        <label>Current password</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-label-group">
+                                            <input type="password" class="form-control" value="*********" disabled />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <p>
+                                                <a class="btn btn-lg btn-primary btn-block text-uppercase button-signin" asp-page="./ChangePassword" asp-route-returnUrl="./Index">Change password</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </section>
                     </div>
-                    <div class="col-md-4">
-                        <div class="form-label-group">
-                            <input type="email" asp-for="Username" class="form-control" disabled />
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <p>
-                                <a class="btn btn-lg btn-primary btn-block text-uppercase button-signin" asp-page="./Email" asp-route-returnUrl="./Index">Change email</a>
-                            </p>
-                        </div>
-                    </div>
+                  
                 </div>
-
-                <div class="row align-items-center p-2">
-                    <div class="col-md-2 text-right">
-                        <label>Current password</label>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-label-group">
-                            <input type="password" class="form-control" value="*********" disabled />
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <p>
-                                <a class="btn btn-lg btn-primary btn-block text-uppercase button-signin" asp-page="./ChangePassword" asp-route-returnUrl="./Index">Change password</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </section>
+            </div>
+        </div>
     </div>
 </div>
+
 
 
 

@@ -9,13 +9,10 @@
     }
 }
 
-@RenderSection("Styles", required: false)
 
-<h2>Manage your account</h2>
+@await RenderSectionAsync("Styles", required: false)
 
 <div>
-    <h4>Change your account settings</h4>
-    <hr />
     <div class="container">
         @*<div class="col-md-1">
                 <partial name="_ManageNav" />
@@ -27,5 +24,5 @@
 </div>
 
 @section Scripts {
-    @RenderSection("Scripts", required: false)
+    @await RenderSectionAsync("Scripts", required: false)
 }

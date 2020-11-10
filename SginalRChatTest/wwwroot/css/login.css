@@ -33,9 +33,6 @@ body {
     border: 0;
     border-radius: 1rem;
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -40%);
 }
 
     .card-signin .card-title {
@@ -144,3 +141,24 @@ body {
 
     .form-label-group input:-ms-input-placeholder { color: #777; }
 }
+
+
+@media (min-height: 780px) {
+
+    .card-signin {
+        border: 0;
+        border-radius: 1rem;
+        box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -40%);
+    }
+
+
+    .user-center {
+        margin-left: 3rem;
+        margin-bottom: 2rem;
+    }
+
+}
+
