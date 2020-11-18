@@ -11,6 +11,7 @@ namespace SginalRChatTest.Pages
     {
         public void OnGet()
         {
+
         }
     }
 }

@@ -12,6 +12,7 @@ namespace SginalRChatTest.Hubs
 
         public async Task SendMessage(string message)
         {
+
             string name = Context.User.Identity.Name;
 
             await Clients.All.SendAsync("ReceiveMessage", name, message, DateTime.Now.ToString("HH':'mm':'ss dd-MM-yyy"));
