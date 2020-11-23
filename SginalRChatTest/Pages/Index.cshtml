@@ -1,24 +1,23 @@
 ﻿@page
 @section Styles
 {
-    <link rel="stylesheet" href="~/css/chat.css?v=1.1">
+    <link rel="stylesheet" href="~/css/chat.css?=1.6">
     <link rel="stylesheet" href="~/css/font-awesome.min.css">
 }
 
-<div class="container py-5 px-2">
+<div class="container py-5">
     <div class="chat-wrap row rounded-lg overflow-hidden">
         <!-- Active user box -->
-        <div id="activeUsersPanel" class="col-3 active-users-panel rounded-lg px-0" onclick="changeBox()">
-            <div class="px-1 py-1 bg-white" style="height: 658px;">
+        <div id="wholeActiveUsersPanel" class="col-1 col-sm-2 col-xl-3 rounded-lg px-0" onclick="changeBox()">
+            <div id="activeUsersPanel" class="px-1 py-1 bg-white">
                 <label class="listToggle">
                     <input id="listCheckbox" type="checkbox" />
                     <span class="btn btn-link fas fa-arrow-right" id="toggleActiveUsersList" aria-hidden="true"></span>
                 </label>
-                
-                <div id="users-box" class="px-3 py-1">
+                <div id="usersBox" class="px-3 py-1">
                     <div class="py-2 text-center"><span class="h5">Active users:</span></div>
                     <div class="row">
-                        <ul id="activeUsersList" class="active-users-list mx-auto" style="list-style: none; width:68%; height:553px; overflow-y: auto;">
+                        <ul id="activeUsersList" class="active-users-list mx-auto">
                             <li><span>Uzytkownik1</span></li>
                             <li><span>Uzytkownik2</span></li>
                             <li><span>Uzytkownik3</span></li>
@@ -60,7 +59,7 @@
             </div>
         </div>
         <!-- Chat Box -->
-        <div class="col-9 px-0 shadow float-right">
+        <div class="col-11 col-sm-10 col-xl-9 px-0 shadow float-right typing-messages-box">
             <div id="chat-window" class="px-5 py-5 chat-box bg-white">
                 <div class="row">
                     <ul id="messagesList" style="list-style: none;"></ul>
@@ -84,7 +83,7 @@
     <script src="~/js/signalr/dist/browser/signalr.js"></script>
     <script src="~/js/chat.js"></script>
     <script src="~/lib/anime-master/anime.min.js"></script>
-    <script src="~/js/activeUserPanel.js"></script>
+    <script src="~/js/activeUserPanel.js?=1.6"></script>
     <script>
         var currentUser = "@HttpContext.User.Identity.Name";
     </script>

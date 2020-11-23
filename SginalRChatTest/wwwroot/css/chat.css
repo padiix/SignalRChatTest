@@ -17,8 +17,9 @@
     transition: width 0.4s ease;
 }
 
-.active-users-box {
-    height: 610px;
+.typing-messages-box {
+    z-index: 2;
+    opacity: 1;
 }
 
 .rounded-lg {
@@ -32,14 +33,33 @@ input {
 
 /*Animations for button and cards*/
 
-@media (min-width: 992px) {
+@media (min-width: 1183px) {
     .listToggle input {
         display: none;
     }
 
-    #activeUsersPanel {
+    #wholeActiveUsersPanel {
         position: relative;
-        left: 0px;
+    }
+
+    #activeUsersPanel {
+        height: 658px;
+    }
+
+    .typing-messages-box {
+        height: auto;
+        opacity: 1;
+    }
+
+    #activeUsersList {
+        list-style: none;
+        width: 75%;
+        height: 553px;
+        overflow-y: auto;
+    }
+
+    #usersBox {
+        opacity: 1;
     }
 
     #toggleActiveUsersList {
@@ -52,14 +72,41 @@ input {
     }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1182px) {
+    .messages-box, .chat-box {
+        height: 558px;
+        overflow-y: scroll;
+    }
+
     .listToggle input {
         display: none;
     }
 
-    #activeUsersPanel {
+    #wholeActiveUsersPanel {
         position: relative;
-        left: 0px;
+        left: -8px;
+        z-index: 1;
+    }
+
+    .typing-messages-box {
+        height: 600px;
+        opacity: 1;
+    }
+
+    #activeUsersPanel {
+        height: 600px;
+        width: 230px;
+    }
+
+    #usersBox {
+        opacity: 0;
+    }
+
+    #activeUsersList {
+        list-style: none;
+        width: 75%;
+        height: 450px;
+        overflow-y: auto;
     }
 
     #toggleActiveUsersList {
@@ -73,9 +120,5 @@ input {
 
     input:checked + #toggleActiveUsersList {
         transform: rotate(90deg);
-    }
-
-    .active-users-list {
-        visibility: hidden;
     }
 }
