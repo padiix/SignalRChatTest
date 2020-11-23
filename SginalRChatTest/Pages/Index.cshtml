@@ -1,14 +1,66 @@
 ﻿@page
 @section Styles
 {
-    <link rel="stylesheet" href="~/css/chat.css">
+    <link rel="stylesheet" href="~/css/chat.css?v=1.1">
     <link rel="stylesheet" href="~/css/font-awesome.min.css">
 }
 
 <div class="container py-5 px-2">
-    <div class="row rounded-lg overflow-hidden shadow">
-        <!-- Chat Box-->
-        <div class="col-12 px-0">
+    <div class="chat-wrap row rounded-lg overflow-hidden">
+        <!-- Active user box -->
+        <div id="activeUsersPanel" class="col-3 active-users-panel rounded-lg px-0" onclick="changeBox()">
+            <div class="px-1 py-1 bg-white" style="height: 658px;">
+                <label class="listToggle">
+                    <input id="listCheckbox" type="checkbox" />
+                    <span class="btn btn-link fas fa-arrow-right" id="toggleActiveUsersList" aria-hidden="true"></span>
+                </label>
+                
+                <div id="users-box" class="px-3 py-1">
+                    <div class="py-2 text-center"><span class="h5">Active users:</span></div>
+                    <div class="row">
+                        <ul id="activeUsersList" class="active-users-list mx-auto" style="list-style: none; width:68%; height:553px; overflow-y: auto;">
+                            <li><span>Uzytkownik1</span></li>
+                            <li><span>Uzytkownik2</span></li>
+                            <li><span>Uzytkownik3</span></li>
+                            <li><span>Uzytkownik4</span></li>
+                            <li><span>Uzytkownik5</span></li>
+                            <li><span>Uzytkownik6</span></li>
+                            <li><span>Uzytkownik7</span></li>
+                            <li><span>Uzytkownik8</span></li>
+                            <li><span>Uzytkownik9</span></li>
+                            <li><span>Uzytkownik10</span></li>
+                            <li><span>Uzytkownik11</span></li>
+                            <li><span>Uzytkownik12</span></li>
+                            <li><span>Uzytkownik13</span></li>
+                            <li><span>Uzytkownik14</span></li>
+                            <li><span>Uzytkownik15</span></li>
+                            <li><span>Uzytkownik16</span></li>
+                            <li><span>Uzytkownik17</span></li>
+                            <li><span>Uzytkownik18</span></li>
+                            <li><span>Uzytkownik19</span></li>
+                            <li><span>Uzytkownik20</span></li>
+                            <li><span>Uzytkownik21</span></li>
+                            <li><span>Uzytkownik22</span></li>
+                            <li><span>Uzytkownik23</span></li>
+                            <li><span>Uzytkownik24</span></li>
+                            <li><span>Uzytkownik25</span></li>
+                            <li><span>Uzytkownik26</span></li>
+                            <li><span>Uzytkownik27</span></li>
+                            <li><span>Uzytkownik28</span></li>
+                            <li><span>Uzytkownik29</span></li>
+                            <li><span>Uzytkownik30</span></li>
+                            <li><span>Uzytkownik31</span></li>
+                            <li><span>Uzytkownik32</span></li>
+                            <li><span>Uzytkownik33</span></li>
+                            <li><span>Uzytkownik34</span></li>
+                            <li><span>Uzytkownik35</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Chat Box -->
+        <div class="col-9 px-0 shadow float-right">
             <div id="chat-window" class="px-5 py-5 chat-box bg-white">
                 <div class="row">
                     <ul id="messagesList" style="list-style: none;"></ul>
@@ -17,7 +69,7 @@
             <!-- Typing area -->
             <form action="#" class="bg-light">
                 <div class="input-group">
-                <input type="text" placeholder="Type a message" id="messageInput" required="" aria-describedby="sendButton" class="form-control rounded-0 border-0 py-4 bg-light">
+                    <input type="text" placeholder="Type a message" id="messageInput" required="" aria-describedby="sendButton" class="form-control rounded-0 border-0 py-4 bg-light">
                     <div class="input-group-append">
                         <button id="sendButton" type="submit" class="btn btn-link"> <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                     </div>
@@ -31,6 +83,8 @@
 {
     <script src="~/js/signalr/dist/browser/signalr.js"></script>
     <script src="~/js/chat.js"></script>
+    <script src="~/lib/anime-master/anime.min.js"></script>
+    <script src="~/js/activeUserPanel.js"></script>
     <script>
         var currentUser = "@HttpContext.User.Identity.Name";
     </script>

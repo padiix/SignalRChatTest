@@ -6,10 +6,19 @@
     font-size: 0.9rem;
 }
 
-.messages-box,
-.chat-box {
+.messages-box, .chat-box {
     height: 610px;
     overflow-y: scroll;
+}
+
+.chat-wrap {
+    float: right;
+    width: 100%;
+    transition: width 0.4s ease;
+}
+
+.active-users-box {
+    height: 610px;
 }
 
 .rounded-lg {
@@ -19,4 +28,54 @@
 input {
     font-size: 0.9rem;
     color: #999;
+}
+
+/*Animations for button and cards*/
+
+@media (min-width: 992px) {
+    .listToggle input {
+        display: none;
+    }
+
+    #activeUsersPanel {
+        position: relative;
+        left: 0px;
+    }
+
+    #toggleActiveUsersList {
+        transition: transform 1s;
+        text-decoration: none;
+    }
+
+    input:checked + #toggleActiveUsersList {
+        transform: rotate(-180deg);
+    }
+}
+
+@media (max-width: 991px) {
+    .listToggle input {
+        display: none;
+    }
+
+    #activeUsersPanel {
+        position: relative;
+        left: 0px;
+    }
+
+    #toggleActiveUsersList {
+        transition: transform 1s;
+        text-decoration: none;
+    }
+
+    input:not(:checked) + #toggleActiveUsersList {
+        transform: rotate(-90deg);
+    }
+
+    input:checked + #toggleActiveUsersList {
+        transform: rotate(90deg);
+    }
+
+    .active-users-list {
+        visibility: hidden;
+    }
 }
