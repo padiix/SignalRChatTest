@@ -17,7 +17,7 @@ connection.on('OnConnected', function (messages, users) {
     }
 
     for (let user of users) {
-        addActiveUser(user);
+        addActiveUser(user.userName);
     }
 });
 
@@ -101,10 +101,6 @@ function addActiveUser(user) {
 
     li.appendChild(document.createTextNode(userName));
     list.appendChild(li);
-
-    //todo: check if working
-    const usersBox = document.getElementById('usersBox');
-    usersBox.scrollTo(0, usersBox.scrollHeight);
 };
 
 function removeActiveUser(user) {

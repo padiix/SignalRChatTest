@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.SignalR;
@@ -10,7 +11,7 @@ namespace SginalRChatTest.Hubs
     public class ChatHub : Hub
     {
         private static readonly List<Message> CachedMessages = new List<Message>();
-        private static readonly List<string> ActiveUsers = new List<string>();
+        private static readonly List<UsersConnections> ActiveUsers = new List<UsersConnections>();
 
         public async Task SendMessage(string message)
         {
@@ -23,20 +24,32 @@ namespace SginalRChatTest.Hubs
         public override async Task OnConnectedAsync()
         {
             var currentUser = Context.User.Identity.Name;
-            if (!ActiveUsers.Contains(currentUser))
+            foreach (var activeUser in ActiveUsers.Where(activeUser => activeUser.UserName == currentUser))
             {
+                activeUser.NumberOfConnections++;
                 await Clients.Caller.SendAsync("OnConnected", CachedMessages, ActiveUsers);
-                await Clients.All.SendAsync("AddNewUser", currentUser);
-                ActiveUsers.Add(currentUser);
+                return;
             }
+            await Clients.Caller.SendAsync("OnConnected", CachedMessages, ActiveUsers);
+            await Clients.All.SendAsync("AddNewUser", currentUser);
+            ActiveUsers.Add(new UsersConnections(currentUser, 1));
         }
 
         public override async Task OnDisconnectedAsync(Exception exception)
         {
             var currentUser = Context.User.Identity.Name;
-            ActiveUsers.Remove(currentUser);
-            await Clients.All.SendAsync("RemoveActiveUser", currentUser);
-            await base.OnDisconnectedAsync(exception);
+            foreach (var activeUser in ActiveUsers)
+            {
+                if (activeUser.UserName == currentUser && activeUser.NumberOfConnections <= 1)
+                {
+                    ActiveUsers.Remove(activeUser);
+                    await Clients.All.SendAsync("RemoveActiveUser", currentUser);
+                    await base.OnDisconnectedAsync(exception);
+                    return;
+                }
+                activeUser.NumberOfConnections--;
+            }
+
         }
 
         private static void CacheMessage(string user, string message)
