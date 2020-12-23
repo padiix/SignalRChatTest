@@ -6,11 +6,23 @@ connection.on('ReceiveMessage', function (user, text, sentTime) {
     addMessage(user, text, sentTime);
 });
 
-connection.on('OnConnected', function (messages) {
+connection.on('AddNewUser', function (user) {
+    addActiveUser(user);
+});
+
+connection.on('OnConnected', function (messages, users) {
 
     for (let message of messages) {
         addMessage(message.userName, message.messageText, message.sentTime);
     }
+
+    for (let user of users) {
+        addActiveUser(user);
+    }
+});
+
+connection.on('RemoveActiveUser', function (user) {
+    removeActiveUser(user);
 });
 
 connection.start().then(function () {
@@ -70,3 +82,35 @@ function addMessage(user, text, sentTime) {
 
     document.getElementById('messageInput').value = '';
 };
+
+function addActiveUser(user) {
+    const userName = user.substr(0, user.indexOf('@')); 
+    const currentUserName = currentUser.substr(0, currentUser.indexOf('@'));
+
+
+    const li = document.createElement('li');
+    li.setAttribute('id', userName);
+    //li.textContent = userName;
+
+    const list = document.getElementById('activeUsersList');
+
+
+    if (currentUserName === userName) {
+        li.style.color = '#5ca4d1';
+    }
+
+    li.appendChild(document.createTextNode(userName));
+    list.appendChild(li);
+
+    //todo: check if working
+    const usersBox = document.getElementById('usersBox');
+    usersBox.scrollTo(0, usersBox.scrollHeight);
+};
+
+function removeActiveUser(user) {
+    const userName = user.substr(0, user.indexOf('@')); 
+
+    const list = document.getElementById('activeUsersList');
+    const candidate = document.getElementById(userName);
+    list.removeChild(candidate);
+}
