@@ -1,13 +1,13 @@
 ﻿@page
 @section Styles
 {
-    <link rel="stylesheet" href="~/css/chat.css?=1.6">
+    <link rel="stylesheet" href="~/css/chat.css?=1.74">
 }
 
 <div class="container py-5 d-flex justify-content-center">
     <div class="chat-wrap row rounded-lg overflow-hidden">
         <!-- Active user box -->
-        <div id="wholeActiveUsersPanel" class="col-1 col-sm-2 col-xl-3 rounded-lg px-0" onclick="changeBox()">
+        <div id="wholeActiveUsersPanel" class="col-1 col-sm-2 col-md-3 col-xl-3 rounded-lg px-0" onclick="changeBox()">
             <div id="activeUsersPanel" class="px-1 py-1 bg-white">
                 <label class="listToggle">
                     <input id="listCheckbox" type="checkbox" />
@@ -22,7 +22,7 @@
             </div>
         </div>
         <!-- Chat Box -->
-        <div class="col-11 col-sm-10 col-xl-9 px-0 shadow float-right typing-messages-box">
+        <div class="col-11 col-sm-10 col-md-9 col-xl-9 px-0 shadow float-right typing-messages-box">
             <div id="chat-window" class="px-5 py-5 chat-box bg-white">
                 <div class="row">
                     <ul id="messagesList" style="list-style: none;"></ul>
@@ -46,7 +46,7 @@
     <script src="~/js/signalr/dist/browser/signalr.js"></script>
     <script src="~/js/chat.js"></script>
     <script src="~/lib/anime-master/anime.min.js"></script>
-    <script src="~/js/activeUserPanel.js?=1.6"></script>
+    <script src="~/js/activeUserPanel.js?=1.74"></script>
     <script>
         var currentUser = "@HttpContext.User.Identity.Name";
     </script>

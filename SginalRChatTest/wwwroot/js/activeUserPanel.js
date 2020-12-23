@@ -1,7 +1,7 @@
 ﻿function changeBox() {
-    function widthListener(x) {
+    function widthListenerMobile(x) {
         if (x.matches) {
-            //If the max width is lesser than 1182px
+            //If the max width is lesser than 767px
             if (document.getElementById("listCheckbox").checked == true) {
                 //If arrow was clicked
                 var chatBox = anime({
@@ -53,27 +53,60 @@
                 });
             }
         } else {
-            //If the max width is bigger than 1182px
-            if (document.getElementById("listCheckbox").checked == true) {
-                //If arrow was clicked
-                anime({
-                    targets: '#wholeActiveUsersPanel',
-                    left: '220px',
-                    easing: 'easeInOutQuad'
-                });
+            if (window.matchMedia(("(min-width: 768px) and (max-width: 1024px)")).matches == true) {
+                if (document.getElementById("listCheckbox").checked == true) {
+                    //if the arrow was clicked
+                    var userList = anime({
+                        targets: '#usersBox',
+                        opacity: 0,
+                        easing: 'easeInOutQuad'
+                    });
+                    var wholeUsersPanel = anime({
+                        targets: '#wholeActiveUsersPanel',
+                        left: window.innerWidth * 0.15 + 'px',
+                        easing: 'easeInOutQuad'
+                    });
+                }
+                else {
+                    //if the arrow was not clicked
+                    var userList = anime({
+                        targets: '#usersBox',
+                        opacity: 1,
+                        easing: 'easeInOutQuad'
+                    });
+                    var wholeUsersPanel = anime({
+                        targets: '#wholeActiveUsersPanel',
+                        left: '0px',
+                        easing: 'easeInOutQuad'
+                    });
+                }
             }
-            else {
-                //If arrow was not clicked
-                anime({
-                    targets: '#wholeActiveUsersPanel',
-                    left: '0px',
-                    easing: 'easeInOutQuad'
-                });
+            else
+            {
+                //If the max width is bigger than 767px
+                if (document.getElementById("listCheckbox").checked == true) {
+                    //If arrow was clicked
+                    anime({
+                        targets: '#wholeActiveUsersPanel',
+                        left: '220px',
+                        easing: 'easeInOutQuad'
+                    });
+                }
+                else {
+                    //If arrow was not clicked
+                    anime({
+                        targets: '#wholeActiveUsersPanel',
+                        left: '0px',
+                        easing: 'easeInOutQuad'
+                    });
+                }
             }
         }
     }
 
-    var x = window.matchMedia("(max-width: 1182px)");
-    widthListener(x);
-    x.addListener(widthListener);
+
+    var mobile = window.matchMedia("(max-width: 767px)");
+    var mediumToLarge = window.matchMedia("(min-width: 1200px)");
+    widthListenerMobile(mobile);
+    mobile.addListener(widthListenerMobile);
 }
