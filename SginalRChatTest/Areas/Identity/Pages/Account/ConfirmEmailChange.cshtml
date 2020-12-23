@@ -1,0 +1,23 @@
+﻿@page
+@model ConfirmEmailChangeModel
+@{
+    ViewData["Title"] = "Confirm email change";
+}
+
+@section Styles
+{
+    <link rel="stylesheet" href="~/css/login.css" />
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-md-7 col-lg-10 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center"><br />@Model.StatusMessage</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

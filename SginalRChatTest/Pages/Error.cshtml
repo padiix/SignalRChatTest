@@ -1,0 +1,30 @@
+﻿@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+@section Styles
+{
+    <link rel="stylesheet" href="~/css/login.css" />
+}
+
+
+@*@if (Model.ShowRequestId)
+    {
+        <p>
+            <strong>Request ID:</strong> <code>@Model.RequestId</code>
+        </p>
+    }*@
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-md-7 col-lg-10 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center"><br />Something wrong happened. If the error persist you can contact us about it.</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

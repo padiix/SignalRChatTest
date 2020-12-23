@@ -1,0 +1,124 @@
+﻿body {
+    min-height: 100vh;
+}
+
+.text-small {
+    font-size: 0.9rem;
+}
+
+.messages-box, .chat-box {
+    height: 610px;
+    overflow-y: scroll;
+}
+
+.chat-wrap {
+    float: right;
+    width: 100%;
+    transition: width 0.4s ease;
+}
+
+.typing-messages-box {
+    z-index: 2;
+    opacity: 1;
+}
+
+.rounded-lg {
+    border-radius: 0.5rem;
+}
+
+input {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+/*Animations for button and cards*/
+
+@media (min-width: 1183px) {
+    .listToggle input {
+        display: none;
+    }
+
+    #wholeActiveUsersPanel {
+        position: relative;
+    }
+
+    #activeUsersPanel {
+        height: 658px;
+    }
+
+    .typing-messages-box {
+        height: auto;
+        opacity: 1;
+    }
+
+    #activeUsersList {
+        list-style: none;
+        width: 75%;
+        height: 553px;
+        overflow-y: auto;
+    }
+
+    #usersBox {
+        opacity: 1;
+    }
+
+    #toggleActiveUsersList {
+        transition: transform 1s;
+        text-decoration: none;
+    }
+
+    input:checked + #toggleActiveUsersList {
+        transform: rotate(-180deg);
+    }
+}
+
+@media (max-width: 1182px) {
+    .messages-box, .chat-box {
+        height: 558px;
+        overflow-y: scroll;
+    }
+
+    .listToggle input {
+        display: none;
+    }
+
+    #wholeActiveUsersPanel {
+        position: relative;
+        left: -8px;
+        z-index: 1;
+    }
+
+    .typing-messages-box {
+        height: 600px;
+        opacity: 1;
+    }
+
+    #activeUsersPanel {
+        height: 600px;
+        width: 230px;
+    }
+
+    #usersBox {
+        opacity: 0;
+    }
+
+    #activeUsersList {
+        list-style: none;
+        width: 75%;
+        height: 450px;
+        overflow-y: auto;
+    }
+
+    #toggleActiveUsersList {
+        transition: transform 1s;
+        text-decoration: none;
+    }
+
+    input:not(:checked) + #toggleActiveUsersList {
+        transform: rotate(-90deg);
+    }
+
+    input:checked + #toggleActiveUsersList {
+        transform: rotate(90deg);
+    }
+}
